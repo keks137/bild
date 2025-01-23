@@ -15,8 +15,8 @@ function M.build()
 		end,
 	})
 
-	vim.cmd("split")
 	--vim.api.nvim_set_current_buf(term_buf)
+	vim.cmd("buffer " .. term_buf)
 end
 
 function M.setup()
