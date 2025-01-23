@@ -1,7 +1,6 @@
 local M = {}
 
 function M.build()
-	vim.system({ "ls" }, { text = true })
 	print("buildy build")
 	local term_buf = vim.api.nvim_create_buf(false, true)
 	vim.api.nvim_open_term(term_buf, {})
@@ -15,7 +14,7 @@ function M.build()
 	})
 
 	vim.cmd("split")
-	vim.api.nvim_set_current_buf(term_buf)
+	--vim.api.nvim_set_current_buf(term_buf)
 end
 
 function M.setup()
