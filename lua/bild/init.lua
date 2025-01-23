@@ -2,10 +2,10 @@ local M = {}
 
 function M.build()
 	print("buildy build")
-	vim.cmd("new")
+	--vim.cmd("new")
 	local term_buf = vim.api.nvim_create_buf(false, false)
 
-	--vim.cmd("split")
+	vim.cmd("split")
 	vim.api.nvim_open_term(term_buf, {})
 
 	vim.fn.termopen("make", {
