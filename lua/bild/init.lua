@@ -4,7 +4,7 @@ function M.build()
 	print("buildy build")
 	vim.cmd("new")
 	--vim.cmd("split")
-	local term_buf = vim.api.nvim_create_buf(false, false)
+	local term_buf = vim.api.nvim_create_buf(false, true)
 
 	vim.api.nvim_open_term(term_buf, {})
 
