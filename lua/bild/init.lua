@@ -2,18 +2,13 @@ local M = {}
 
 function M.build()
 	print("buildy build")
-	vim.cmd("new")
+	--vim.cmd("new")
 
 	local term_win = vim.api.nvim_create_buf(false, true)
 	--vim.cmd("split")
-	local term_wind = vim.api.nvim_open_win(term_win, true, {
-		relative = "editor",
-		width = 80,
-		height = 20,
-		col = (vim.o.columns - 80) / 2,
-		row = (vim.o.lines - 20) / 2,
-		border = "rounded", -- You can change the border style
-	})
+	local term_wind = vim.api.nvim_open_win(term_win, true, {})
+
+	vim.api.nvim_set_current_buf(term_win)
 	local term_buf = vim.api.nvim_create_buf(false, true)
 
 	vim.api.nvim_open_term(term_buf, {})
@@ -26,7 +21,7 @@ function M.build()
 		end,
 	})
 
-	vim.api.nvim_set_current_buf(term_buf)
+	--vim.api.nvim_set_current_buf(term_buf)
 end
 
 function M.setup()
