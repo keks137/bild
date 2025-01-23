@@ -4,7 +4,11 @@ function M.build()
 	print("buildy build")
 	--vim.cmd("new")
 
+	local term_win = vim.api.nvim_create_buf(false, true)
 	--vim.cmd("split")
+	local term_wind = vim.api.nvim_open_win(term_win, true, {
+		split = "below",
+	})
 	local term_buf = vim.api.nvim_create_buf(false, true)
 
 	vim.api.nvim_open_term(term_buf, {})
@@ -15,9 +19,6 @@ function M.build()
 				print("Command exited with code: " .. exit_code)
 			end
 		end,
-	})
-	local term_win = vim.api.nvim_open_win(term_buf, true, {
-		split = "below",
 	})
 
 	vim.api.nvim_set_current_buf(term_buf)
