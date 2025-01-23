@@ -2,11 +2,11 @@ local M = {}
 
 function M.build()
 	print("buildy build")
+	vim.cmd("split")
 	local term_buf = vim.api.nvim_create_buf(true, true)
 
 	vim.api.nvim_open_term(term_buf, {})
 
-	vim.api.nvim_set_current_buf(term_buf)
 	vim.fn.termopen("make", {
 		on_exit = function(_, exit_code)
 			if exit_code ~= 0 then
@@ -15,7 +15,7 @@ function M.build()
 		end,
 	})
 
-	--vim.cmd("split")
+	vim.cmd("split")
 	--vim.api.nvim_set_current_buf(term_buf)
 end
 
