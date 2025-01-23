@@ -8,7 +8,7 @@ function M.build()
 	vim.api.nvim_open_term(term_buf, {}) -- Open a terminal in the buffer
 
 	-- Run the 'ls' command in the terminal
-	vim.fn.termopen("ls -l", {
+	vim.fn.termopen("make", {
 		on_exit = function(_, exit_code)
 			if exit_code ~= 0 then
 				print("Command exited with code: " .. exit_code)
