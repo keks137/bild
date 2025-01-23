@@ -23,6 +23,7 @@ function M.build()
 	local term_win = vim.api.nvim_open_win(term_buf, true, {
 		split = "right",
 	})
+	vim.api.nvim_win_close(term_win, false)
 
 	vim.api.nvim_set_current_buf(term_buf)
 end
