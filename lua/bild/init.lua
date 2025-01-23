@@ -5,6 +5,7 @@ function M.build()
 	vim.cmd("new")
 	local term_buf = vim.api.nvim_create_buf(false, false)
 
+	--vim.cmd("split")
 	vim.api.nvim_open_term(term_buf, {})
 
 	vim.fn.termopen("make", {
