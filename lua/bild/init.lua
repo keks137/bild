@@ -3,11 +3,9 @@ local M = {}
 function M.build()
 	vim.system({ "ls" }, { text = true })
 	print("buildy build")
-	-- Create a new terminal buffer
-	local term_buf = vim.api.nvim_create_buf(false, true) -- Create a new buffer
-	vim.api.nvim_open_term(term_buf, {}) -- Open a terminal in the buffer
+	local term_buf = vim.api.nvim_create_buf(false, true)
+	vim.api.nvim_open_term(term_buf, {})
 
-	-- Run the 'ls' command in the terminal
 	vim.fn.termopen("make", {
 		on_exit = function(_, exit_code)
 			if exit_code ~= 0 then
@@ -16,7 +14,7 @@ function M.build()
 		end,
 	})
 
-	-- Optionally, you can set the buffer to be displayed in a specific window
+	vim.cmd("belowright split")
 	vim.api.nvim_set_current_buf(term_buf)
 end
 
