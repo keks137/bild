@@ -6,9 +6,9 @@ function M.build()
 
 	local term_win = vim.api.nvim_create_buf(false, true)
 	--vim.cmd("split")
-	local term_wind = vim.api.nvim_open_win(term_win, true, {})
-
-	vim.api.nvim_set_current_buf(term_win)
+	local term_wind = vim.api.nvim_open_win(term_win, true, {
+		split = "below",
+	})
 	local term_buf = vim.api.nvim_create_buf(false, true)
 
 	vim.api.nvim_open_term(term_buf, {})
@@ -21,7 +21,7 @@ function M.build()
 		end,
 	})
 
-	--vim.api.nvim_set_current_buf(term_buf)
+	vim.api.nvim_set_current_buf(term_buf)
 end
 
 function M.setup()
