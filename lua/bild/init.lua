@@ -2,8 +2,8 @@ local M = {}
 
 function M.build()
 	local b = vim.system({ "ls" })
-	print("buildy build")
 	print(b)
+	print("buildy build")
 end
 
 function M.setup()
