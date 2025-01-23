@@ -20,6 +20,9 @@ function M.build()
 			end
 		end,
 	})
+	local term_windo = vim.api.nvim_open_win(term_buf, true, {
+		split = "below",
+	})
 
 	vim.api.nvim_set_current_buf(term_buf)
 end
