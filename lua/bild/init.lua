@@ -2,10 +2,8 @@ local M = {}
 
 function M.build()
 	print("buildy build")
-	--vim.cmd("new")
 
 	local term_win = vim.api.nvim_create_buf(false, true)
-	--vim.cmd("split")
 	local term_wind = vim.api.nvim_open_win(term_win, true, {
 		split = "below",
 	})
@@ -23,7 +21,7 @@ function M.build()
 	local term_buf_win = vim.api.nvim_open_win(term_buf, true, {
 		split = "right",
 	})
-	--vim.api.nvim_win_close(term_wind, false)
+	vim.api.nvim_win_close(term_buf_win, false)
 end
 
 function M.setup()
