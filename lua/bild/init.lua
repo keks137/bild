@@ -16,7 +16,7 @@ function M.build()
 		end,
 	})
 
-	--vim.api.nvim_set_current_buf(term_buf)
+	vim.api.nvim_set_current_buf(term_buf)
 	vim.cmd("buffer " .. term_buf)
 end
 
