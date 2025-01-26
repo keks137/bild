@@ -27,6 +27,7 @@ function M.build()
     split = 'right',
   })
   vim.api.nvim_win_close(term_buf_win, false)
+  vim.cmd 'startinsert'
 end
 
 function M.setup()
