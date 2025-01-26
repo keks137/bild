@@ -1,8 +1,8 @@
 local M = {}
 local build_command = 'make'
 
-function M.set_build_command()
-  build_command = 'ls'
+function M.set_build_command(args)
+  build_command = args[1]
 end
 
 function M.build()
@@ -31,7 +31,13 @@ end
 
 function M.setup()
   vim.api.nvim_create_user_command('Bild', M.build, {})
-  vim.api.nvim_create_user_command('BildCommand', M.set_build_command, {})
+  vim.api.nvim_create_user_command('BildCommand', function(opts)
+    -- `opts.fargs` is an array of arguments passed to the command
+    M.set_build_command(opts.fargs)
+  end, {
+    -- Define the command to accept one or more arguments
+    nargs = '?', -- '?' means the argument is optional
+  })
 end
 
 return M
